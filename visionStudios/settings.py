@@ -153,13 +153,11 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR,  'visionStudios')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "visionStudios/static"),)
-SERVER_EMAIL = 'visionstudios.office@gmail.com'
+
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_FROM_USER = os.environ.get('EMAIL_FROM_USER')
-EMAIL_HOST_USER = SERVER_EMAIL
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-ADMINS = [
-    ('visionstudios.office@gmail.com'),
-]
