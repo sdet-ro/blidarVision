@@ -149,8 +149,8 @@ def applyPage(request):
             send_mail(
                 'APLICATIE NOUA',
                 body,
-                'visionstudios.office@gmail.com',
-                ['nicu@visionstudios.ro', 'office@visionstudios.ro'],
+                'office@visionstudios.ro',
+                ['design@visionstudios.ro'],
                 fail_silently=True,
             )
             # 'visionstudios.office@gmail.com',
