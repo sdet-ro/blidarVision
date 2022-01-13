@@ -40,7 +40,7 @@ def submitFloater(request):
                 'Cineva doreste sa va contacteze...',
                 body,
                 'visionstudios.office@gmail.com',
-                ['office@visionstudios.ro'],
+                ['design@visionstudios.ro', 'office@visionstudeios.ro'],
                 fail_silently=True,
             )
             send_mail(
@@ -93,7 +93,7 @@ def contactPage(request):
                 'Cineva doreste sa va contacteze...',
                 body,
                 'visionstudios.office@gmail.com',
-                ['office@visionstudios.ro'],
+                ['design@visionstudios.ro', 'office@visionstudeios.ro'],
                 fail_silently=True,
             )
             send_mail(
@@ -149,8 +149,8 @@ def applyPage(request):
             send_mail(
                 'APLICATIE NOUA',
                 body,
-                'office@visionstudios.ro',
-                ['design@visionstudios.ro'],
+                'visionstudios.office@gmail.com',
+                ['design@visionstudios.ro', 'office@visionstudios.ro'],
                 fail_silently=True,
             )
             # 'visionstudios.office@gmail.com',
