@@ -43,6 +43,7 @@ def submitFloater(request):
                 ['design@visionstudios.ro', 'office@visionstudeios.ro'],
                 fail_silently=True,
             )
+            try:
             send_mail(
                 'Confirmare Vision Studios',
                 'Mesajul dumneavoastra a fost inregistrat si veti fi contactata in curand!\n\n Toate cele bune,\n Echipa Vision Studios',
@@ -89,6 +90,7 @@ def contactPage(request):
             body = "Email: " + email + "\n\n"
             body += "Nume: " + name + "\n\n"
             body += "Mesaj: " + message
+            try:
             send_mail(
                 'Cineva doreste sa va contacteze...',
                 body,
@@ -96,6 +98,7 @@ def contactPage(request):
                 ['design@visionstudios.ro', 'office@visionstudeios.ro'],
                 fail_silently=True,
             )
+            try:
             send_mail(
                 'Confirmare Vision Studios',
                 'Mesajul dumneavoastra a fost inregistrat si veti fi contactata in curand!\n\n Toate cele bune,\n Echipa Vision Studios',
@@ -145,7 +148,7 @@ def applyPage(request):
             
             if message != "":
                 body += "Mesaj: " + message
-
+            try:
             send_mail(
                 'APLICATIE NOUA',
                 body,
@@ -159,4 +162,5 @@ def applyPage(request):
 
         print(appForm.errors)
         return render(request, "apply.html", {'appForm': appForm, 'flForm' : floaterForm})
+
 
