@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Post
-from contact.models import Application, Message, FloaterMessage
+from .models import Post, Application, Message, FloaterMessage
 # Register your models here.
 admin.site.register(Post)
 admin.site.register(Message)
