@@ -1,5 +1,8 @@
 from django.db import models
+from pickle import TRUE
 import datetime
+from django.contrib.auth.models import User
+
 
 STATUS = ((0,  "Draft"), (1, "Published"))
 
