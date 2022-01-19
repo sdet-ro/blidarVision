@@ -1,5 +1,5 @@
-from django.db import models
 from pickle import TRUE
+from django.db import models
 import datetime
 from django.contrib.auth.models import User
 
@@ -20,9 +20,6 @@ class Post(models.Model):
 
   def __str__(self):
     return self.title
-
-  
-
 class Message(models.Model):
     email = models.EmailField(verbose_name="email", max_length=60)
     name = models.CharField(max_length=60)
@@ -67,4 +64,3 @@ class Application(models.Model):
         ro_timezone = self.date_sent + hrs
         time_string = ro_timezone.strftime("%d/%m/%Y at %H:%M")
         return self.name + ", " + self.phone + ", " + time_string
-
