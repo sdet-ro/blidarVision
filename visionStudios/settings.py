@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'visionStudios',
     'contact',
+    'InfoAdmin'
     'crispy_forms'
 ]
 
