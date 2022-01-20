@@ -152,8 +152,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR,  'visionStudios')
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "visionStudios/static"),)
-
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_FROM_USER = os.environ.get('EMAIL_FROM_USER')
 EMAIL_HOST = os.environ.get('EMAIL_HOST')
