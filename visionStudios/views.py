@@ -92,8 +92,8 @@ def contactPage(request):
             send_mail(
                 'Cineva doreste sa va contacteze...',
                 body,
-                'visionstudios.office@gmail.com',
-                ['design@visionstudios.ro', 'office@visionstudeios.ro'],
+                'gorin.nikita.dev@gmail.com',
+                ['design@visionstudios.ro', 'ostapivvolodymyr575@gmail.com'],
                 fail_silently=True,
             )
             send_mail(
