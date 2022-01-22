@@ -18,8 +18,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Post',
             fields=[
-                ('title',  models.CharField(max_lenght=1048)),
-                ('slug', models.SlugField(max_lenght=1048)),
+                ('title',  models.CharField(max_length=1048)),
+                ('slug', models.SlugField(max_length=1048)),
                 ('author', models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')),
                 ('content', models.TextField()),
                 ('status', models.IntegerField(choices=STATUS, default=0)),
