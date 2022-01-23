@@ -26,8 +26,8 @@ SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
-
+# SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+SECRET_KEY = 'django-insecure-d$g3o#h1h%2m%7v-4qs5aylt3tqw(gx#q&x!#rc(hl5xpyo6#&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -93,29 +93,43 @@ WSGI_APPLICATION = 'visionStudios.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-if DEVELOPMENT_MODE is True:
-    DATABASES = {
-        'default': {
-                    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+# if DEVELOPMENT_MODE is True:
+#     DATABASES = {
+#         'default': {
+#                     'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-                    'NAME': 'visionStudios',
+#                     'NAME': 'visionStudios',
 
-                    'USER': 'postgres',
+#                     'USER': 'postgres',
 
-                    'PASSWORD': 'adminpass',
+#                     'PASSWORD': 'adminpass',
 
-                    'HOST': 'localhost',
+#                     'HOST': 'localhost',
 
-                    'PORT': '5432',
-                }
-        }
-elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
-    if os.getenv("DATABASE_URL", None) is None:
-        raise Exception("DATABASE_URL environment variable not defined")
-    DATABASES = {
-        "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
+#                     'PORT': '5432',
+#                 }
+#         }
+# elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
+#     if os.getenv("DATABASE_URL", None) is None:
+#         raise Exception("DATABASE_URL environment variable not defined")
+#     DATABASES = {
+#         "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
+#     }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': 'visionStudios',
+
+        'USER': 'postgres',
+
+        'PASSWORD': '123',
+
+        'HOST': 'localhost',
+
+        'PORT': '5432',
     }
-
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
