@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from contact.forms import ContactForm
 from contact.models import Message, FloaterMessage, Application
 from contact.forms import FloaterForm, ApplicationForm
-from django.core.mail import send_mail
+from django.core.mail import BadHeaderError, send_mail
+from django.http import HttpResponse, HttpResponseRedirect
 
 def homePage(request):
     floaterForm = FloaterForm()
@@ -88,12 +89,12 @@ def contactPage(request):
             msg.save()
             body = "Email: " + email + "\n\n"
             body += "Nume: " + name + "\n\n"
-            body += "Mesaj: " + message
+            body += "Mesaj: " + message   
             send_mail(
                 'Cineva doreste sa va contacteze...',
                 body,
-                'gorin.nikita.dev@gmail.com',
-                ['design@visionstudios.ro', 'ostapivvolodymyr575@gmail.com'],
+                'visionstudios.office@gmail.com',
+                ['design@visionstudios.ro', 'office@visionstudios.ro'],
                 fail_silently=True,
             )
             send_mail(
