@@ -41,7 +41,7 @@ def submitFloater(request):
                 'Cineva doreste sa va contacteze...',
                 body,
                 'visionstudios.office@gmail.com',
-                ['design@visionstudios.ro', 'office@visionstudeios.ro'],
+                ['design@visionstudios.ro', 'office@visionstudios.ro'],
                 fail_silently=True,
             )
             send_mail(
