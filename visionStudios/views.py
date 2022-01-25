@@ -105,6 +105,10 @@ def contactPage(request):
             )
         return redirect('/')
 
+def instaPage(request):
+    floaterForm = FloaterForm()
+    return render(request, "home.html", {'flForm' : floaterForm})
+
 def applyPage(request):
     floaterForm = FloaterForm()
     appForm = ApplicationForm()
