@@ -26,8 +26,10 @@ SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+# SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+SECRET_KEY = 'django-insecure-d$g3o#h1h%2m%7v-4qs5aylt3tqw(gx#q&x!#rc(hl5xpyo6#&'
 
+# SECRET_KEY = 'django-insecure-d$g3o#h1h%2m%7v-4qs5aylt3tqw(gx#q&x!#rc(hl5xpyo6#&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -49,12 +51,15 @@ INSTALLED_APPS = [
 
 DEBUG = True
 
-DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
+# DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
+DEVELOPMENT_MODE = True
+# DEVELOPMENT_MODE = True
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -65,6 +70,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'visionStudios.urls'
+
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 TEMPLATES = [
     {
@@ -92,18 +100,9 @@ WSGI_APPLICATION = 'visionStudios.wsgi.application'
 if DEVELOPMENT_MODE is True:
     DATABASES = {
         'default': {
-                    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-                    'NAME': 'visionStudios',
-
-                    'USER': 'postgres',
-
-                    'PASSWORD': 'adminpass',
-
-                    'HOST': 'localhost',
-
-                    'PORT': '5432',
-                }
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': BASE_DIR / 'db.sqlite3',
+            }
         }
 elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
     if os.getenv("DATABASE_URL", None) is None:
@@ -111,7 +110,6 @@ elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
     DATABASES = {
         "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
     }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -153,11 +151,10 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR,  'visionStudios')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "visionStudios/static"),)
-
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
-EMAIL_FROM_USER = os.environ.get('EMAIL_FROM_USER')
-EMAIL_HOST = os.environ.get('EMAIL_HOST')
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_FROM_USER = os.getenv('EMAIL_FROM_USER')
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
