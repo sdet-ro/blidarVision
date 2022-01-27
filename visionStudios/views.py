@@ -4,6 +4,7 @@ from contact.models import Message, FloaterMessage, Application
 from contact.forms import FloaterForm, ApplicationForm
 from django.core.mail import BadHeaderError, send_mail
 from django.http import HttpResponse, HttpResponseRedirect
+from django.views import generic
 
 def homePage(request):
     floaterForm = FloaterForm()
@@ -109,6 +110,10 @@ def contactPage(request):
 def instaPage(request):
     floaterForm = FloaterForm()
     return render(request, "insta.html", {'flForm' : floaterForm})
+
+def blogPage(request):
+   floaterForm = FloaterForm()
+   return render(request, "blog.html", {'flForm' : floaterForm})
 
 def applyPage(request):
     floaterForm = FloaterForm()
