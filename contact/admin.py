@@ -5,3 +5,5 @@ admin.site.register(Post)
 admin.site.register(Message)
 admin.site.register(FloaterMessage)
 admin.site.register(Application)
+
+
