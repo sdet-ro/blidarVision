@@ -113,7 +113,12 @@ def instaPage(request):
 
 def blogPage(request):
    floaterForm = FloaterForm()
-   return render(request, "blog.html", {'flForm' : floaterForm})
+   post_list = Post.objects.all().order_by('-created_on')
+   context = {
+        'flForm' : floaterForm,
+        "post_list": post_list
+   }
+   return render(request, "blog.html", context)
 
 def applyPage(request):
     floaterForm = FloaterForm()
