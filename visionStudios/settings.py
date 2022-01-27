@@ -54,7 +54,6 @@ DEBUG = True
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 # DEVELOPMENT_MODE = True
 
-
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [

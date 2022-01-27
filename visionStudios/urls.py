@@ -30,6 +30,7 @@ urlpatterns = [
     path('galerie', views.galeryPage, name="galeryPage"),
     path('contact', views.contactPage, name="contactPage"),
     path('insta', views.instaPage, name="instaPage"),
+    path('blog', views.blogPage, name="blogPage"),
     path('submitFloater', views.submitFloater, name="submitFloater"),
     path('aplica', views.applyPage, name="applyPage"),
     
