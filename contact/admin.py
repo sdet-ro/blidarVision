@@ -12,4 +12,4 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('status',)
     search_fileds = ['title', 'content']
 
-admin.site.register(PostAdmin)  
+admin.site.register(PostAdmin)    

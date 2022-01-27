@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from contact.forms import ContactForm
-from contact.models import Message, FloaterMessage, Application
+from contact.models import Message, FloaterMessage, Application, Post
 from contact.forms import FloaterForm, ApplicationForm
 from django.core.mail import BadHeaderError, send_mail
 from django.http import HttpResponse, HttpResponseRedirect
