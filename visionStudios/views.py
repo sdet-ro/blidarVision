@@ -120,6 +120,13 @@ def blogPage(request):
    }
    return render(request, "blog.html", context)
 
+def post_detail(request, pk):
+    post= Post.objects.get(pk=pk)
+    context = {
+        'post' : post
+    }
+    return render(request, "post_detail.html", context)
+
 def applyPage(request):
     floaterForm = FloaterForm()
     appForm = ApplicationForm()
