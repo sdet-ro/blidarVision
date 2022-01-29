@@ -1,16 +1,188 @@
-{% extends 'base.html' %} 
+
+
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Post
+{% endblock title %}
 {% block content %}
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 card mb-4  mt-3 left  top">
-      <div class="card-body">
-        <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
-        <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
-        <p class="card-text ">{{ post.content | safe }}</p>
-      </div>
+<style>
+  .card-detail-body{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-right: 30px;
+    margin-bottom: 120px;
+    padding: 30px;
+    }
+</style>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js"></script>
+</head>
+<div class="modal in" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title futura">Lasă-ne datele tale de contact și te contactăm noi!</h4>
+                <button type="button" class="close" data-dismiss="modal" onclick="close_m()">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form id="registration_form" action="{% url 'submitFloater' %}" method="post">
+                    {% csrf_token %}
+                    <div id="div_id_email" class="form-group">
+                        <label for="id_email" class="requiredField futura" style="float: left; font-size: 1.5vw;">Email <span style="color:#AB4E52">*</span></label>
+                        <div class="">
+                            <input type="email" name="email" maxlength="60" class="emailinput form-control" required="" id="id_email" style="background-color: rgb(209, 209, 209);">
+                        </div>
+                    </div>
+                    <div id="div_id_phone" class="form-group">
+                        <label for="id_phone" class="requiredField futura" style="float: left; font-size: 1.5vw;">Telefon <span style="color:#AB4E52">*</span></label>
+                        <div class="">
+                            <input type="phone" name="phone" maxlength="60" class="form-control" required="" id="id_phone" style="background-color: rgb(209, 209, 209);">
+                        </div>
+                    </div>
+                
+            </div>
+            
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Trimite</button>
+                </form>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="close_m()">Iesire</button>
+            </div>
+        
+        </div>
     </div>
-  </div>
 </div>
+<div class="mobileHide">
+    <div class="container-fluid">
+        
+        <div class="row h-100" style="overflow: hidden;">
+            <button class="futura" onclick="topFunction()" id="myTopBtn" title="Go to top">back to top ────</button>
+            <div class="col-3" style="background-color: #121729; text-align: center;">
+                <img src="{% static 'vs_title.jpg' %}" onclick="location.href = '/'" draggable="false" class="img-fluid" style="width: 80%; margin-top: 10%; margin-left: 10%;  margin-right: 10%; cursor: pointer;">
+                <pre><p class="futura" style="font-size: 0.75vw; color: #FFFFFF; cursor: pointer;" onclick="location.href = '/'">C L U J    N A P O C A    •    R O M A N I A</p></pre>                <pre><button class="apply_txt" id="myApplyBtn" style="font-size: 0.7 vw;" onclick="location.href = '/aplica'"> ───  A   P   L   I   C   Ă</button></pre>
+            </div>
+            
+            <div class="col-9" style="text-align: center;">
+                <div class="row" style="margin-bottom: 0%;">
+                    <pre class="futura" style="font-size: 3.25vw; margin-top: 1%; margin-bottom: 0%; padding-bottom: 0%;">B    L    O    G</pre>
+                    <div>
+                        <div class="col-12">
+                        <div class="dropdown" style="float: right;">
+                            <button class="dropbtn"><p class="menuitem" style="width: 100px;">M E N U </p>
+                            </p></button>
+                            <div class="dropdown-content">
+                              <a href="/">Home</a>
+                              <a href="/modele">Modele</a>
+                              <a href="/aboutus">Despre noi</a>
+                              <a href="/galerie">Galerie</a>
+                              <a href="/contact">Contact</a>
+                              <a href="/insta">Insta</a>
+                              <a href="/aplica">Aplică</a>
+                            </div>
+                          </div>
+                          </div>
+                    </div>
+                </div>
+                
+                <div class="container">
+                  <div class="detail-row">
+                      <div class="card-detail-body">
+                        <h1>{{ post.title }} </h1>
+                        <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
+                        <p class="card-text ">{{ post.content | safe }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+<div class="mobileShow">
+    <div class="container-fluid">
+        <div class="row h-100" style="overflow: hidden;">
+            <button class="futura" onclick="topFunction()" id="myTopBtn2" title="Go to top">back to top ────</button>
+            <div class="col-3" style="background-color: #121729; text-align: center;">
+                <img src="{% static 'vs_title.png' %}" onclick="location.href = '/'" draggable="false" class="img" style="width: 200%;  transform: rotate(-90deg); margin-top: 100%; margin-left: -60%;">
+            <div style="transform: rotate(-90deg); margin-top: -20%; margin-left: -50%; width: 250%;" onclick="location.href = '/'"><pre><p class="futura" style="font-size: 1.25vw; color: #FFFFFF;">C L U J    N A P O C A    •    R O M A N I A</p></pre></div>
+                <pre><button class="apply_txt" id="myApplyBtn" onclick="location.href = '/aplica'" style="font-size: 6.0vw;"> ───  A   P   L   I   C   Ă</button></pre>            </div>
+            <div class="col-9" style="text-align: center;">
+                <div class="row" style="margin-bottom: 0%;">
+                    <pre class="futura" style="font-size: 3.75vw; margin-top: 1%; margin-bottom: 0%; padding-bottom: 0%;">B    L    O    G </pre>
+                </div>
+                
+                {% comment %} IMG 1 LEFT {% endcomment %}
+             
+                <div class="col-3">
+                    <div class="dropdown">
+                        <button class="dropbtn"><p class="menuitem" style=" white-space: normal;
+                            word-wrap: break-word; width: 50px;">M E N U </p>
+                        </p></button>
+                        <div class="dropdown-content">
+                          <a href="/" style="font-size: 3vw;">Home</a>
+                          <a href="/modele" style="font-size: 3vw;">Modele</a>
+                          <a href="/galerie" style="font-size: 3vw;">Galerie</a>
+                          <a href="/contact" style="font-size: 3vw;">Contact</a>
+                          <a href="/insta" style="font-size: 3vw;">Insta</a>
+                          <a href="/aplica" style="font-size: 3vw;">Aplică</a>
+                        </div>
+                      </div>
+                </div>
+                
+                <div class="container">
+                  <div class="detail-row">
+                      <div class="card-detail-body">
+                        <h1> {{ post.title }} </h1>
+                        <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
+                        <p class="card-text ">{{ post.content | safe }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+    <script>
+
+        //Get the button
+        var mybutton = document.getElementById("myTopBtn");
+        var mybutton2 = document.getElementById("myTopBtn2");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    mybutton.style.display = "block";
+                    mybutton2.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                    mybutton2.style.display = "none";
+                }
+            }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
 
 {% endblock content %}
