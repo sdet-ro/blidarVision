@@ -31,6 +31,7 @@ urlpatterns = [
     path('contact', views.contactPage, name="contactPage"),
     path('insta', views.instaPage, name="instaPage"),
     path('blog', views.blogPage, name="blogPage"),
+    path("blog/<int:pk>/", views.post_detail, name="post_detail"),
     path('submitFloater', views.submitFloater, name="submitFloater"),
     path('aplica', views.applyPage, name="applyPage"),
     
@@ -41,3 +42,4 @@ urlpatterns = [
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
