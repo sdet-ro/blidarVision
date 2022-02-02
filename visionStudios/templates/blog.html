@@ -129,8 +129,10 @@ Blog
                     <div class="column">
                       {% for post in post_list %}
                       <div class="card mb-4">
+                        <div class="card_image">
+                          <img src="{{ post.blog_images }}">
+                        </div>
                         <div class="card-body">
-                          <img class="card-image">{{post.header_image}}</img>
                           <h2 class="card-title">{{ post.title }}</h2>
                           <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
                           <p class="card-text">{{post.content|slice:":200"}}</p>
@@ -232,6 +234,7 @@ Blog
             document.documentElement.scrollTop = 0;
         }
     </script>
+
 
 
 {% endblock content %}
