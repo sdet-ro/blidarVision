@@ -7,8 +7,9 @@ admin.site.register(Application)
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'status', 'created_on')
+    list_display = ('title', 'slug', 'status', 'created_on', 'blog_images')
     list_filter = ('status',)
     search_fileds = ['title', 'content']
 
 admin.site.register(Post, PostAdmin)    
+
