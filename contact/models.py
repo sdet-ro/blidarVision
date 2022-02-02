@@ -12,6 +12,7 @@ class Post(models.Model):
   content = models.TextField()
   status = models.IntegerField(choices=STATUS, default=0)
   created_on = models.DateTimeField(auto_now_add=True)
+  blog_images = models.ImageField(upload_to="media/blog_images", null=True)
 
   def __str__(self):
     return self.title
@@ -60,3 +61,4 @@ class Application(models.Model):
         ro_timezone = self.date_sent + hrs
         time_string = ro_timezone.strftime("%d/%m/%Y at %H:%M")
         return self.name + ", " + self.phone + ", " + time_string
+
