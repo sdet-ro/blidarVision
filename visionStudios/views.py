@@ -118,6 +118,7 @@ def blogPage(request):
         'flForm' : floaterForm,
         "post_list": post_list
    }
+   
    return render(request, "blog.html", context)
 
 def post_detail(request, pk):
@@ -126,6 +127,8 @@ def post_detail(request, pk):
         'post' : post
     }
     return render(request, "post_detail.html", context)
+
+
 
 def applyPage(request):
     floaterForm = FloaterForm()
