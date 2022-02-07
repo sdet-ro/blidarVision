@@ -149,7 +149,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,  'visionStudios')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "visionStudios/static"),)
 
-MEDIA_ROOT  = os.path.join(BASE_DIR, 'visionStudios')
+MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
