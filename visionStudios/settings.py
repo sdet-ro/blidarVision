@@ -27,7 +27,7 @@ SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
-#SECRET_KEY = 'django-insecure-d$g3o#h1h%2m%7v-4qs5aylt3tqw(gx#q&x!#rc(hl5xpyo6#&'
+# SECRET_KEY = 'django-insecure-d$g3o#h1h%2m%7v-4qs5aylt3tqw(gx#q&x!#rc(hl5xpyo6#&'
 
 # SECRET_KEY = 'django-insecure-d$g3o#h1h%2m%7v-4qs5aylt3tqw(gx#q&x!#rc(hl5xpyo6#&'
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -52,7 +52,7 @@ INSTALLED_APPS = [
 DEBUG = True
 
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
-#DEVELOPMENT_MODE = True
+# DEVELOPMENT_MODE = True
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -149,6 +149,11 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR,  'visionStudios')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "visionStudios/static"),)
+
+MEDIA_ROOT  = os.path.join(BASE_DIR, 'visionStudios')
+MEDIA_URL = '/media/'
+
+
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_FROM_USER = os.getenv('EMAIL_FROM_USER')
 EMAIL_HOST = os.getenv('EMAIL_HOST')
