@@ -53,7 +53,6 @@ DEBUG = True
 
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 #DEVELOPMENT_MODE = True
-
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
@@ -149,6 +148,11 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR,  'visionStudios')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "visionStudios/static"),)
+
+MEDIA_ROOT  = os.path.join(BASE_DIR, 'visionStudios')
+MEDIA_URL = '/media/'
+
+
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_FROM_USER = os.getenv('EMAIL_FROM_USER')
 EMAIL_HOST = os.getenv('EMAIL_HOST')

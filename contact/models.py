@@ -12,7 +12,7 @@ class Post(models.Model):
   content = models.TextField()
   status = models.IntegerField(choices=STATUS, default=0)
   created_on = models.DateTimeField(auto_now_add=True)
-  blog_images = models.ImageField(upload_to="media/blog_images", null=True)
+  blog_images = models.ImageField(upload_to="blog_images", null=True)
 
   def __str__(self):
     return self.title
