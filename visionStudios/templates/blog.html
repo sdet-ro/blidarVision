@@ -1,14 +1,14 @@
 <style>
-  .card-body{
+  .card{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
-    .column {
+  }
+  .column {
   float: left;
   display: flex;
   width: 80%;
   flex-wrap: wrap;
 
-}
+  }
 .btn-grey{
   background-color: white;
   color: black;
@@ -80,6 +80,7 @@ Blog
                 
             </div>
             
+            
             <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="submit" class="btn btn-success">Trimite</button>
@@ -91,9 +92,8 @@ Blog
     </div>
 </div>
 <div class="mobileHide">
-    <div class="container-fluid">
-        
-        <div class="row h-100" style="overflow: hidden;">
+    <div class="container-fluid">        
+        <div class="row h-100">
             <button class="futura" onclick="topFunction()" id="myTopBtn" title="Go to top">back to top ────</button>
             <div class="col-3" style="background-color: #121729; text-align: center;">
                 <img src="{% static 'vs_title.jpg' %}" onclick="location.href = '/'" draggable="false" class="img-fluid" style="width: 80%; margin-top: 10%; margin-left: 10%;  margin-right: 10%; cursor: pointer;">
@@ -123,26 +123,22 @@ Blog
                 </div>
                 
                 {% comment %} IMG 1 LEFT {% endcomment %}
-                <div class="container">
+                <div class="container" style="margin-bottom: 100px;">
                   <div class="row">
                     <!-- Blog Entries Column -->
-                    <div class="column">
                       {% for post in post_list %}
-                      <div class="card mb-4">
-                        <div class="card_image">
-                          <img src="{{ post.blog_images }}">
-                        </div>
+                      <div class="card mb-4 col-6 p-0 ">
+                        <div class="card-img-top" style="height: 200px; overflow-y: hidden;">
+                          <img src="{{ post.blog_images.url }}" style="height:auto; width: 100%;">
+                        </div>                        
                         <div class="card-body">
-                          <h2 class="card-title">{{ post.title }}</h2>
-                          <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
+                          <h4 class="card-title">{{ post.title }}</h4>
+                          <h6 class="card-subtitle mb-2 text-muted">{{ post.author }} | {{ post.created_on}} </h6>
                           <p class="card-text">{{post.content|slice:":200"}}</p>
                           <a href="{% url 'post_detail' post.pk  %}" class="btn-grey">Află mai multe</a>
-
                         </div>
                       </div>
-                      {% endfor %}
-                    </div>
-                  
+                      {% endfor %}                  
                   </div>
                 </div>
                 
