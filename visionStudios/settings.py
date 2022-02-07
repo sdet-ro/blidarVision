@@ -26,8 +26,8 @@ SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
-SECRET_KEY = 'django-insecure-d$g3o#h1h%2m%7v-4qs5aylt3tqw(gx#q&x!#rc(hl5xpyo6#&'
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+#SECRET_KEY = 'django-insecure-d$g3o#h1h%2m%7v-4qs5aylt3tqw(gx#q&x!#rc(hl5xpyo6#&'
 
 # SECRET_KEY = 'django-insecure-d$g3o#h1h%2m%7v-4qs5aylt3tqw(gx#q&x!#rc(hl5xpyo6#&'
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -51,9 +51,8 @@ INSTALLED_APPS = [
 
 DEBUG = True
 
-#DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
-DEVELOPMENT_MODE = True
-
+DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
+#DEVELOPMENT_MODE = True
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
