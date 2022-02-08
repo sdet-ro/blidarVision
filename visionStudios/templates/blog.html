@@ -180,22 +180,25 @@ Blog
                 </div>
                 
               
-                <div class="container">
+                {% comment %} IMG 1 LEFT {% endcomment %}
+                <div class="container" style="margin-bottom: 100px;">
                   <div class="row">
                     <!-- Blog Entries Column -->
-                    <div class="column">
                       {% for post in post_list %}
-                      <div class="card mb-4">
+                      <div class="card mb-4 col-6 p-0 ">
+                        <div class="card-img-top" style="height: 200px; overflow-y: hidden;">
+                          <img src="{{ post.blog_images.url }}" style="height:auto; width: 100%;">
+                        </div>                        
                         <div class="card-body">
-                          <h2 class="card-title">{{ post.title }}</h2>
-                          <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
-                          <p class="card-text">{{post.slug|slice:":200"}}</p>
+                          <h4 class="card-title">{{ post.title }}</h4>
+                          <h6 class="card-subtitle mb-2 text-muted">{{ post.author }} | {{ post.created_on}} </h6>
+                          <p class="card-text">{{post.content|slice:":200"}}</p>
                           <a href="{% url 'post_detail' post.pk  %}" class="btn-grey">Află mai multe</a>
-
                         </div>
                       </div>
-                      {% endfor %}
-                    </div>
+                      {% endfor %}                  
+                  </div>
+                </div>
                   
                   </div>
                 </div>
