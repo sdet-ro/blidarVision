@@ -95,7 +95,7 @@ def contactPage(request):
                 'Cineva doreste sa va contacteze...',
                 body,
                 'visionstudios.office@gmail.com',
-                ['design@visionstudios.ro', 'office@visionstudios.ro'],
+                ['design@visionstudios.ro', 'office@visionstudios.ro', 'vlad@visionstudios.ro'],
                 fail_silently=True,
             )
             send_mail(
